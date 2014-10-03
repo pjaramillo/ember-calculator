@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Mimosa Ember Skeleton</title>
+    <link rel="stylesheet" href="/stylesheets/vendor.css{{cachebust}}" />
+    <link rel="stylesheet" href="/stylesheets/{{controller}}.css{{cachebust}}" />
+
+    {{#reload}}
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/javascripts/reload-client.js"></script>
+    {{/reload}}
+
+    {{#optimize}}
+      <script src="/javascripts/{{controller}}-main-built.js"></script>
+    {{/optimize}}
+
+    {{^optimize}}
+      <script src="/javascripts/vendor/requirejs/require.js" data-main="/javascripts/{{controller}}-main.js"></script>
+    {{/optimize}}
+
+  </head>
+  <body>
+  </body>
+</html>
