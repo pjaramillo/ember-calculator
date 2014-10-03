@@ -10,7 +10,7 @@ exports.config = {
     'ember-test',
 
     // compilers
-    'es6-module-transpiler',
+    'esperanto-es6-modules',
     'copy',
     'ember-handlebars',
     'sass',
