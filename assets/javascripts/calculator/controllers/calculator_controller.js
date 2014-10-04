@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
-var BasicCalculator = Ember.Component.extend({
-  classNames: ['basic-calculator'],
+var CalculatorController = Ember.ObjectController.extend({
   operation: '',
   operand1: '0',
   operand2: '',
@@ -105,4 +104,4 @@ var BasicCalculator = Ember.Component.extend({
 
 });
 
-export default BasicCalculator;
+export default CalculatorController;
