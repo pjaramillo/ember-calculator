@@ -1,1 +1,20 @@
-This is a basic calculator
+<div class="display">{{result}}</div>
+
+<button class="operand" {{action 'operandClicked' '0'}}>0</button>
+<button class="operand" {{action 'operandClicked' '1'}}>1</button>
+<button class="operand" {{action 'operandClicked' '2'}}>2</button>
+<button class="operand" {{action 'operandClicked' '3'}}>3</button>
+<button class="operand" {{action 'operandClicked' '4'}}>4</button>
+<button class="operand" {{action 'operandClicked' '5'}}>5</button>
+<button class="operand" {{action 'operandClicked' '.'}}>.</button>
+
+<button class="operation" {{action 'operationClicked' '+'}}>+</button>
+<button class="operation" {{action 'operationClicked' '-'}}>-</button>
+<button class="operation" {{action 'operationClicked' '*'}}>*</button>
+<button class="operation" {{action 'operationClicked' '/'}}>/</button>
+<button class="operation" {{action 'operationClicked' '+/-'}}>+/-</button>
+<button class="operation" {{action 'operationClicked' '%'}}>%</button>
+
+<button class="operation" {{action 'operationClicked' '='}}>=</button>
+
+<button class="operation" {{action 'operationClicked' 'C'}}>C</button>
