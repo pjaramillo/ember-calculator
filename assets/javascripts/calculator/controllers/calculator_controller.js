@@ -22,7 +22,9 @@ var CalculatorController = Ember.ObjectController.extend({
       } else {
         if(this.get('operationActive')) {
           // Don't allow user to input multiple decimal points
-          if(operand2.indexOf('.') !== -1 && operand === '.') return;
+          if(operand2.indexOf('.') !== -1 && operand === '.') {
+            return;
+          }
           // Don't allow user to input multiple leading 0's
           if(operand2 === '0') {
             value = operand;
@@ -33,7 +35,9 @@ var CalculatorController = Ember.ObjectController.extend({
           this.set('result', value);
         } else {
           // Don't allow user to input multiple decimal points
-          if(operand1.indexOf('.') !== -1 && operand === '.') return;
+          if(operand1.indexOf('.') !== -1 && operand === '.') {
+            return;
+          }
           // Don't allow user to input multiple leading 0's
           if(operand1 === '0') {
             value = operand;
