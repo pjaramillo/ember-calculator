@@ -1,3 +1,7 @@
+$button-bg: #E8EFE6;
+$operation-bg: #D5D8DC;
+$main-operation-bg: #B3DBA8;
+
 .calculator {
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
@@ -63,7 +67,7 @@
       vertical-align: middle;
       text-align: center;
       font-size: 30px;
-      background: #E8EFE6;
+      background: $button-bg;
       border-right: 1px solid #000;
       cursor: pointer;
 
@@ -74,16 +78,33 @@
       &:last-of-type {
         border-right: none;
       }
+
       &.double {
         width: 50%;
       }
 
       &.operation {
-        background: #D5D8DC;
+        background: $operation-bg;
+        &:hover {
+          background: darken($operation-bg, 10);
+        }
+        &:active {
+          background: white;
+        }
       }
 
       &.main-operation {
-        background: #B3DBA8;
+        background: $main-operation-bg;
+        &:hover {
+          background: darken($main-operation-bg, 10);
+        }
+        &:active {
+          background: white;
+        }
+      }
+
+      &:hover {
+        background: darken($button-bg, 10);
       }
 
       &:active {
