@@ -93,6 +93,7 @@ var CalculatorController = Ember.ObjectController.extend({
           break;
         case '%':
           this.set('operationActive', false);
+          this.set('shouldReset', true);
           value = (parseFloat(this.get('operand1')) / 100).toString();
           this.set('operand1', value);
           this.set('result', value);
