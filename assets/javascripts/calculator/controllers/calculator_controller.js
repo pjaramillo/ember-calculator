@@ -64,13 +64,13 @@ var CalculatorController = Ember.ObjectController.extend({
           break;
         case '+/-':
           this.set('operationActive', false);
-          value = this.get('operand1') * -1;
+          value = (parseFloat(this.get('operand1')) * -1).toString();
           this.set('operand1', value);
           this.set('result', value);
           break;
         case '%':
           this.set('operationActive', false);
-          value = this.get('operand1') / 100;
+          value = (parseFloat(this.get('operand1')) / 100).toString();
           this.set('operand1', value);
           this.set('result', value);
           break;
