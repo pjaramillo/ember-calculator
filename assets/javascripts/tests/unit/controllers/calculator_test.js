@@ -66,6 +66,18 @@ test('operandClicked action when calculator first opens', function() {
   equal(controller.get('result'), '35.5', "`result` is '35.5'");
 });
 
+test('operandClicked action when calculator first opens and decimal point is entered', function() {
+  expect(4);
+
+  var controller = this.subject();
+
+  controller.send('operandClicked', '.');
+  equal(controller.get('operation'), '', "`operation` is ''");
+  equal(controller.get('operand1'), '0.', "`operand1` is '0.'");
+  equal(controller.get('operand2'), '', "`operand2` is ''");
+  equal(controller.get('result'), '0.', "`result` is '0.'");
+});
+
 test('operandClicked action after operation is applied', function() {
   expect(12);
 
@@ -90,6 +102,27 @@ test('operandClicked action after operation is applied', function() {
   equal(controller.get('operand1'), '3', "`operand1` is '3'");
   equal(controller.get('operand2'), '51', "`operand2` is '51'");
   equal(controller.get('result'), '51', "`result` is '51'");
+
+});
+
+test('operandClicked action after operation is applied and decimal follows', function() {
+  expect(8);
+
+  var controller = this.subject();
+  controller.send('operandClicked', '3');
+  controller.send('operationClicked', '+');
+
+  controller.send('operandClicked', '.');
+  equal(controller.get('operation'), '+', "`operation` is '+'");
+  equal(controller.get('operand1'), '3', "`operand1` is '3'");
+  equal(controller.get('operand2'), '0.', "`operand2` is '0.'");
+  equal(controller.get('result'), '0.', "`result` is '0.'");
+
+  controller.send('operandClicked', '5');
+  equal(controller.get('operation'), '+', "`operation` is '+'");
+  equal(controller.get('operand1'), '3', "`operand1` is '3'");
+  equal(controller.get('operand2'), '0.5', "`operand2` is '0.5'");
+  equal(controller.get('result'), '0.5', "`result` is '0.5'");
 
 });
 

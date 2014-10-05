@@ -6,6 +6,7 @@ var CalculatorController = Ember.ObjectController.extend({
   operand2: '',
   result: '0',
   operationActive: false,
+  // Keeps track of whether the display should reset when pressing a new operand
   shouldReset: true,
 
   actions: {
@@ -15,7 +16,12 @@ var CalculatorController = Ember.ObjectController.extend({
       var value;
       if(this.get('shouldReset')) {
         this.set('shouldReset', false);
-        value = operand;
+        // Decimal should turn into 0.
+        if(operand === '.') {
+          value = '0.';
+        } else {
+          value = operand;
+        }
         this.set('operand1', value);
         this.set('operand2', '');
         this.set('result', value);
@@ -25,9 +31,15 @@ var CalculatorController = Ember.ObjectController.extend({
           if(operand2.indexOf('.') !== -1 && operand === '.') {
             return;
           }
+
           // Don't allow user to input multiple leading 0's
-          if(operand2 === '0') {
-            value = operand;
+          if(operand2 === '0' || operand2 === '') {
+            // Decimal should turn into 0.
+            if(operand === '.') {
+              value = '0.';
+            } else {
+              value = operand;
+            }
           } else {
             value = operand2 + operand;
           }
@@ -40,7 +52,12 @@ var CalculatorController = Ember.ObjectController.extend({
           }
           // Don't allow user to input multiple leading 0's
           if(operand1 === '0') {
-            value = operand;
+            // Decimal should turn into 0.
+            if(operand === '.') {
+              value = '0.';
+            } else {
+              value = operand;
+            }
           } else {
             value = operand1 + operand;
           }
